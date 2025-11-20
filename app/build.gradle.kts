@@ -17,7 +17,7 @@ plugins {
 }
 
 android {
-    namespace = "com.krishan.sampleappwithdependencies"
+    namespace = "com.krishan.composePractice"
     compileSdk {
         version = release(36)
     }
@@ -32,7 +32,7 @@ android {
 //    val anyApiKey = localProperties["[]_API_KEY"]
 
     defaultConfig {
-        applicationId = "com.krishan.sampleappwithdependencies"
+        applicationId = "com.krishan.composePractice"
         minSdk = 28
         targetSdk = 36
         versionCode = 1

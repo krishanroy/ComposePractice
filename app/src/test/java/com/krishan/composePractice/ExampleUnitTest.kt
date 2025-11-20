@@ -1,4 +1,4 @@
-package com.krishan.sampleappwithdependencies
+package com.krishan.composePractice
 
 import org.junit.Test
 

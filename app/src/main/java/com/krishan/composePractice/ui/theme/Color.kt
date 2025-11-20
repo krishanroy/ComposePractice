@@ -1,4 +1,4 @@
-package com.krishan.sampleappwithdependencies.ui.theme
+package com.krishan.composePractice.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

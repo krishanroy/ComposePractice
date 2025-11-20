@@ -1,4 +1,4 @@
-package com.krishan.sampleappwithdependencies
+package com.krishan.composePractice
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

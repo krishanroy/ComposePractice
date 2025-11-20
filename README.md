@@ -1,3 +1,4 @@
-# SampleAppWithDependencies
-This is an app that holds all the latest android dependencies 
-to be cloned from and used in other apps
+# Compose Practice
+This is an fun app where I play with different layout in compose
+that I see in other apps just to challenge my compose capability
+and extend my knowledge. 

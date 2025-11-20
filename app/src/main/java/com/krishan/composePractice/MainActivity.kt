@@ -1,4 +1,4 @@
-package com.krishan.sampleappwithdependencies
+package com.krishan.composePractice
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.krishan.sampleappwithdependencies.ui.theme.SampleAppWithDependenciesTheme
+import com.krishan.composePractice.ui.theme.SampleAppWithDependenciesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
