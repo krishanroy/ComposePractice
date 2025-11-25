@@ -37,6 +37,7 @@ coilCompose = "2.7.0"
 # room
 room = "2.8.3"
 timber = "5.0.1"
+navigation3Ui = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -90,6 +91,9 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 
 # Timber
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+# Navigation 3
+androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3Ui" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
