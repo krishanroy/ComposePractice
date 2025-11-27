@@ -30,9 +30,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
+import com.krishan.composePractice.ui.BottomAppBarExample
 import com.krishan.composePractice.ui.MkbhdPanelAppClickAnimation
 import com.krishan.composePractice.ui.nav.Screen
-import com.krishan.composePractice.ui.nav.User
 import com.krishan.composePractice.ui.theme.ComposePracticeTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -68,15 +68,16 @@ class MainActivity : ComponentActivity() {
                                             scope.launch {
                                                 homeState = HomeState.LOADING
                                                 delay(2000)
-                                                backStack.add(
-                                                    Screen.Details(
-                                                        User(
-                                                            id = "User1234",
-                                                            name = "Mr. Peace",
-                                                            email = "peace@gmail.com"
-                                                        )
-                                                    )
-                                                )
+//                                                backStack.add(
+//                                                    Screen.Details(
+//                                                        User(
+//                                                            id = "User1234",
+//                                                            name = "Mr. Peace",
+//                                                            email = "peace@gmail.com"
+//                                                        )
+//                                                    )
+//                                                )
+                                                backStack.add(Screen.BottomNav)
                                                 homeState = HomeState.LOADED
                                             }
                                         }) {
@@ -96,6 +97,9 @@ class MainActivity : ComponentActivity() {
 
                             is Screen.Details -> NavEntry(key) {
                                 MkbhdPanelAppClickAnimation()
+                            }
+                            is Screen.BottomNav -> NavEntry(key) {
+                                BottomAppBarExample()
                             }
                         }
                     }
