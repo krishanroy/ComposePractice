@@ -5,9 +5,9 @@ coreKtx = "1.17.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
-lifecycleRuntimeKtx = "2.9.4"
-activityCompose = "1.11.0"
-composeBom = "2025.11.00"
+lifecycleRuntimeKtx = "2.10.0"
+activityCompose = "1.12.0"
+composeBom = "2025.11.01"
 
 # Hilt
 ksp = "2.2.20-2.0.2"
@@ -19,15 +19,15 @@ koinAndroid = "4.1.1"
 
 # OkHttp - Retrofit
 materialIconsExtended = "1.7.8"
-okhttpBom = "5.3.0"
+okhttpBom = "5.3.2"
 retrofit = "3.0.0"
 gson = "3.0.0"
 
 # K-tor
-ktorClientAndroid = "3.3.2"
-ktorClientCore = "3.3.2"
-ktorClientLogging = "3.3.2"
-ktorClientSerializationJvm = "3.3.2"
+ktorClientAndroid = "3.3.3"
+ktorClientCore = "3.3.3"
+ktorClientLogging = "3.3.3"
+ktorClientSerializationJvm = "3.3.3"
 
 # Navigation - Serialization
 navigation = "2.9.6"
@@ -36,9 +36,11 @@ serialization = "1.9.0"
 coilCompose = "2.7.0"
 
 # room
-room = "2.8.3"
+room = "2.8.4"
 timber = "5.0.1"
 navigation3Ui = "1.0.0"
+appcompat = "1.7.1"
+material = "1.13.0"
 
 [libraries]
 androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
@@ -96,6 +98,8 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 # Navigation 3
 androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3Ui" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -111,4 +115,5 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 
 # Room
 room = { id = "androidx.room", version.ref = "room" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 

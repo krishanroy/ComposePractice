@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "SampleAppWithDependencies"
 include(":app")
- 
+include(":network")

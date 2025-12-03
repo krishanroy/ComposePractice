@@ -10,4 +10,5 @@ plugins {
 
     // Room
     alias(libs.plugins.room) apply false
+    alias(libs.plugins.android.library) apply false
 }

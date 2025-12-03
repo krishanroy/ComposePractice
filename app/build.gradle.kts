@@ -100,12 +100,6 @@ dependencies {
     implementation(libs.converter.kotlinx.serialization)
     implementation(libs.google.gson.converter)
 
-    // If we use K-tor
-    implementation(libs.ktor.client.android)
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.serialization.jvm)
-    implementation(libs.ktor.client.logging)
-
     // Navigation - Serialization
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
