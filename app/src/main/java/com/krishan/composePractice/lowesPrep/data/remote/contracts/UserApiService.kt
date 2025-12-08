@@ -4,7 +4,7 @@ import com.krishan.composePractice.lowesPrep.data.dtos.UserDto
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface GetUserService {
+interface UserApiService {
     @GET("users")
-    fun getUsers(): Response<List<UserDto>>
+    suspend fun getUsers(): Response<List<UserDto>>
 }

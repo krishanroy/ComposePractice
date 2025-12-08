@@ -4,7 +4,7 @@ import com.krishan.composePractice.lowesPrep.data.dtos.PhotoDto
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface GetPhotosService {
+interface PhotosApiService {
     @GET("photos")
-    fun getPhotos(): Response<List<PhotoDto>>
+    suspend fun getPhotos(): Response<List<PhotoDto>>
 }

@@ -16,12 +16,12 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
+//    buildTypes {
+//        release {
+//            isMinifyEnabled = false
+//            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+//        }
+//    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -42,7 +42,6 @@ dependencies {
     // If we use K-tor
     implementation(libs.ktor.client.android)
     implementation(libs.ktor.client.core)
-    implementation("io.ktor:ktor-client-okhttp:3.3.3")
     implementation(libs.ktor.client.serialization.jvm)
     implementation(libs.ktor.client.logging)
 }
