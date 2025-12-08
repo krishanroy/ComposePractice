@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,32 +39,33 @@ class HomeViewModel @Inject constructor(
             )
         }
         viewModelScope.launch {
-            val usersDeferred = async { userRepository.fetchUsers() }
-            val photosDeferrer = async { photosRepository.fetchPhotos() }
-            val todosDeferred = async { todosRepository.fetchTodos() }
-            try {
-                val users = usersDeferred.await()
-                val photos = photosDeferrer.await()
-                val todos = todosDeferred.await()
+            supervisorScope {
+                val usersDeferred = async { userRepository.fetchUsers() }
+                val photosDeferrer = async { photosRepository.fetchPhotos() }
+                val todosDeferred = async { todosRepository.fetchTodos() }
+                try {
+                    val users = usersDeferred.await()
+                    val photos = photosDeferrer.await()
+                    val todos = todosDeferred.await()
 
-                _homeMutableStateFlow.update { homeScreenUiState ->
-                    homeScreenUiState.copy(
-                        userUiState = homeScreenUiState.userUiState.copy(loading = false, users = users),
-                        photosUiState = homeScreenUiState.photosUiState.copy(loading = false, photos = photos),
-                        todosUiState = homeScreenUiState.todosUiState.copy(loading = false, todos = todos)
-                    )
-                }
-            } catch (e: Exception) {
-                // TODO: learn how to handle individual error
-                _homeMutableStateFlow.update { homeScreenUiState ->
-                    homeScreenUiState.copy(
-                        userUiState = homeScreenUiState.userUiState.copy(
-                            loading = false,
-                            error = "Something went wrong"
-                        ),
-                        photosUiState = homeScreenUiState.photosUiState.copy(loading = false),
-                        todosUiState = homeScreenUiState.todosUiState.copy(loading = false)
-                    )
+                    _homeMutableStateFlow.update { homeScreenUiState ->
+                        homeScreenUiState.copy(
+                            userUiState = homeScreenUiState.userUiState.copy(loading = false, users = users),
+                            photosUiState = homeScreenUiState.photosUiState.copy(loading = false, photos = photos),
+                            todosUiState = homeScreenUiState.todosUiState.copy(loading = false, todos = todos)
+                        )
+                    }
+                } catch (e: Exception) {
+                    _homeMutableStateFlow.update { homeScreenUiState ->
+                        homeScreenUiState.copy(
+                            userUiState = homeScreenUiState.userUiState.copy(
+                                loading = false,
+                                error = "Something went wrong"
+                            ),
+                            photosUiState = homeScreenUiState.photosUiState.copy(loading = false),
+                            todosUiState = homeScreenUiState.todosUiState.copy(loading = false)
+                        )
+                    }
                 }
             }
         }

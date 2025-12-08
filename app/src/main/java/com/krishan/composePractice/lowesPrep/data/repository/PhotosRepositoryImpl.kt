@@ -12,7 +12,15 @@ class PhotosRepositoryImpl @Inject constructor(private val photosApiService: Pho
         try {
             val response = photosApiService.getPhotos()
             return if (response.isSuccessful && response.body() != null) {
-                response.body()?.map { photoDto -> photoDto.toDomain() } ?: emptyList()
+                val photos = response.body()?.take(20) ?: emptyList()
+                // two ways to do it
+                // 1st way ------>
+//                photos.mapIndexed { index, photo ->
+//                    val imageUrl = imageUrls[index]
+//                    photo.copy(url = imageUrl).toDomain()
+//                }
+                // second way and more idiomatic in my opinion  ---->
+                photos.zip(imageUrls) { photo, url -> photo.copy(url = url).toDomain() }
             } else {
                 emptyList()
             }
@@ -22,3 +30,12 @@ class PhotosRepositoryImpl @Inject constructor(private val photosApiService: Pho
         }
     }
 }
+
+val imageUrls = listOf(
+    "https://yavuzceliker.github.io/sample-images/image-1.jpg", // cat
+    "https://i.imgur.com/OB0y6MR.jpg", // dog
+    // Repeat with different placeholder variations or incrementing image IDs
+    *List(18) { i ->
+        "https://yavuzceliker.github.io/sample-images/image-${i + 1}.jpg"
+    }.toTypedArray()
+)
