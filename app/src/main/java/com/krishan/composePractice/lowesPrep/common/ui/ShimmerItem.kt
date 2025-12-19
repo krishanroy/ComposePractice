@@ -1,4 +1,4 @@
-package com.krishan.composePractice.lowesPrep.ui.common
+package com.krishan.composePractice.lowesPrep.common.ui
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
