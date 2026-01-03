@@ -4,10 +4,12 @@ import com.krishan.composePractice.lowesPrep.data.dtos.toDomain
 import com.krishan.composePractice.lowesPrep.data.remote.contracts.TodosApiService
 import com.krishan.composePractice.lowesPrep.domain.model.Todo
 import com.krishan.composePractice.lowesPrep.domain.repo.TodosRepository
+import com.krishan.composePractice.pricelineprep.data.di.JsonPlaceholderRetrofit
 import timber.log.Timber
 import javax.inject.Inject
 
-class TodosRepositoryImpl @Inject constructor(private val todosApiService: TodosApiService) : TodosRepository {
+class TodosRepositoryImpl @Inject constructor(@field:JsonPlaceholderRetrofit private val todosApiService: TodosApiService) :
+    TodosRepository {
     override suspend fun fetchTodos(): List<Todo> {
         return try {
             val response = todosApiService.getTodos()
