@@ -4,10 +4,11 @@ import com.krishan.composePractice.lowesPrep.data.dtos.toDomain
 import com.krishan.composePractice.lowesPrep.data.remote.contracts.UserApiService
 import com.krishan.composePractice.lowesPrep.domain.model.User
 import com.krishan.composePractice.lowesPrep.domain.repo.UserRepository
+import com.krishan.composePractice.pricelineprep.data.di.JsonPlaceholderRetrofit
 import timber.log.Timber
 import javax.inject.Inject
 
-class UserRepositoryImpl @Inject constructor(private val userApiService: UserApiService) : UserRepository {
+class UserRepositoryImpl @Inject constructor(@field:JsonPlaceholderRetrofit private val userApiService: UserApiService) : UserRepository {
     override suspend fun fetchUsers(): List<User> {
         return try {
             val response = userApiService.getUsers()
